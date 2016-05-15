@@ -1,0 +1,32 @@
+body {
+  background-color: #212121;
+}
+
+a {
+  text-decoration: underline;
+  color: #FF5722;
+}
+
+a:visited {
+  color: #673AB7;
+}
+.noctis {
+  font-family: "TulpenOne-Regular";
+  font-style: normal;
+  font-variant: small-caps;
+  font-size: 4em;
+  margin: 0;
+}
+
+.statement {
+  margin: 0;
+  font-family: "TulpenOne-Regular";
+  font-style: normal;
+  font-variant: small-caps;
+  font-size: 3em;
+}
+
+@font-face{
+  font-family: "TulpenOne-Regular";
+  src: url('./../fonts/TulpenOne-Regular.ttf');
+}
