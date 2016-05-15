@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Noctis from './home.jsx';
+import './assets/css/base.css';
+import Noctis from './js/home.jsx';
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
