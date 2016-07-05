@@ -4,8 +4,8 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const BUILD_DIR = path.resolve(__dirname, 'src/client/public');
-const APP_DIR = path.resolve(__dirname, 'src/client/app');
+const BUILD_DIR = path.resolve(__dirname, 'public');
+const APP_DIR = path.resolve(__dirname, 'app');
 
 //prod minification
 const PROD = JSON.parse(process.env.PROD_ENV || '0');
@@ -21,6 +21,7 @@ var config = {
     path: BUILD_DIR,
     filename: PROD ? 'bundle.min.js' : 'bundle.js'
   },
+  watch: true,
 
   module : {
     loaders : [
