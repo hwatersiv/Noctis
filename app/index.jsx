@@ -20,7 +20,15 @@ const ITEMS = [
     subtitle: 'Warms even the coldest...neck',
     image: 'http://www.fillmurray.com/200/300',
     price: '$30.00',
-  }
+  },
+  {
+    name:'Arm Warmers',
+    id:3,
+    description: 'High Quality Wool. Handmade',
+    subtitle: 'Warms even the coldest...arm',
+    image: 'http://www.fillmurray.com/200/300',
+    price: '$20.00',
+  },
 ];
 //Needed for onTouchTap
 //Can go away when react 1.0 release

@@ -8,6 +8,7 @@ class Store extends React.Component {
     const itemNodes =  this.props.data.map((item) => {
       return (
         <Item 
+          className="item"
           name={item.name}
           key={item.id}
           description={item.description}
