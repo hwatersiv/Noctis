@@ -10,7 +10,7 @@ const ITEMS = [
     id: 1,
     description: 'High Quality Wool. Handmade.',
     subtitle: 'Warms even the coldest...head',
-    image: 'http://www.fillmurray.com/200/300',
+    image: 'http://www.fillmurray.com/300/300',
     price: '$40.00',
   },
   {
@@ -18,7 +18,7 @@ const ITEMS = [
     id:2,
     description: 'High Quality Wool. Handmade',
     subtitle: 'Warms even the coldest...neck',
-    image: 'http://www.fillmurray.com/200/300',
+    image: 'http://www.fillmurray.com/300/300',
     price: '$30.00',
   },
   {
@@ -26,7 +26,7 @@ const ITEMS = [
     id:3,
     description: 'High Quality Wool. Handmade',
     subtitle: 'Warms even the coldest...arm',
-    image: 'http://www.fillmurray.com/200/300',
+    image: 'http://www.fillmurray.com/300/300',
     price: '$20.00',
   },
 ];

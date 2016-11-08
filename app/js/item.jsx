@@ -5,15 +5,9 @@ import FlatButton from 'material-ui/FlatButton';
 const styles = {
   container: {
     width: '30%',
-    maxHeight: '20em',
     display: 'inline-block',
-    margin: '2em',
+    margin: 15,
   },
-
-  media: {
-    
-  },
-
 }
 
 class Item extends React.Component {
@@ -21,9 +15,9 @@ class Item extends React.Component {
     return (
       <Card style={styles.container}>
         <CardMedia
-          mediaStyle={styles.media}
-          overlay={<CardTitle title={this.props.name} subtitle={this.props.subtitle} />}>
-          <img src={this.props.image} />
+          overlay={<CardTitle title={this.props.name} subtitle={this.props.subtitle}/>}
+          >
+          <img style={styles.img} src={this.props.image} />
         </CardMedia>
         <CardText>
           {this.props.description}

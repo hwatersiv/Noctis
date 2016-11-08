@@ -46,7 +46,11 @@ var config = {
     Uglyfy
   ] : [
     extractCSS
-  ]
+  ],
+
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
 
 };
 

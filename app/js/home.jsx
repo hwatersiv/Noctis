@@ -12,6 +12,7 @@ class Noctis extends React.Component {
   render() {
 
     return (
+      <div>HELLO WORLD!!!!!</div>
       <MuiThemeProvider muiTheme={muiTheme}>
         <Store data={this.props.data}/>
       </MuiThemeProvider>

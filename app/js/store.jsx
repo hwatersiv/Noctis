@@ -1,7 +1,6 @@
 import React from 'react';
 import Item from './item.jsx';
 
-
 class Store extends React.Component {
 
   render () {
@@ -17,8 +16,8 @@ class Store extends React.Component {
           price={item.price} />
       )
     })
+
     return (
-      
       <div>{itemNodes}</div>
     )
   }
