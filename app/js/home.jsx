@@ -4,18 +4,34 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Store from './store.jsx';
+import Navbar from './navbar.jsx';
 
 const muiTheme = getMuiTheme(darkBaseTheme);
+const headerImage = require('../assets/images/noctisbckgrndTOP.png');
+
+const styles = {
+  titleBackground: {
+    backgroundImage: 'url('+ headerImage +')',
+    backgroundSize: 'cover',
+    height: 400,
+    width: '100%',
+  },
+}
 
 class Noctis extends React.Component {
 
   render() {
 
     return (
-      <div>HELLO WORLD!!!!!</div>
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Store data={this.props.data}/>
-      </MuiThemeProvider>
+      <div>
+        <div style={styles.titleBackground}></div>
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Navbar/>
+        </MuiThemeProvider>
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Store data={this.props.data}/>
+        </MuiThemeProvider>
+      </div>
     );
   }
 }

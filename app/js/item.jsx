@@ -17,7 +17,7 @@ class Item extends React.Component {
         <CardMedia
           overlay={<CardTitle title={this.props.name} subtitle={this.props.subtitle}/>}
           >
-          <img style={styles.img} src={this.props.image} />
+          <img src={this.props.image} />
         </CardMedia>
         <CardText>
           {this.props.description}
