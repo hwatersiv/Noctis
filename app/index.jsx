@@ -36,4 +36,5 @@ const ITEMS = [
 //https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-ReactDom.render(<Noctis data={ITEMS}/>, document.getElementById('noctis'));
+ReactDom.render(<Noctis data={ITEMS}/>, 
+  document.getElementById('noctis'));

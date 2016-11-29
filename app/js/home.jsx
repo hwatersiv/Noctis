@@ -15,6 +15,11 @@ const styles = {
     backgroundSize: 'cover',
     height: 400,
     width: '100%',
+    fontFamily: "'Porcelain', sans-serif",
+    fontSize: '20em',
+    color: 'white',
+    textAlign: 'center',
+    lineHeight: '400px',
   },
 }
 
@@ -24,7 +29,7 @@ class Noctis extends React.Component {
 
     return (
       <div>
-        <div style={styles.titleBackground}></div>
+        <div style={styles.titleBackground}>Noctis</div>
         <MuiThemeProvider muiTheme={muiTheme}>
           <Navbar/>
         </MuiThemeProvider>

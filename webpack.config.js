@@ -32,15 +32,19 @@ var config = {
       },
       { 
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader?modules")
+      },
+      { 
+        test: /\.woff$/,
+        loader: 'url'
       },
       { 
         test: /\.ttf$/,
-        loader: 'file-loader'
+        loader: 'url'
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'file',
+        loader: 'file-loader',
       },
     ]
   },
