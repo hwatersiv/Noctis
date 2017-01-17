@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import {deepPurple200,
         grey900,
@@ -16,10 +17,6 @@ const styles = {
 }
 
 class Navbar extends React.Component {
-  onMenuClick() {
-    
-  }
-
   render () {
     return (
       <AppBar
@@ -28,11 +25,11 @@ class Navbar extends React.Component {
           <IconMenu
             iconButtonElement={<IconButton><MenuIcon color={grey900}/></IconButton>}
             anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-            targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
           >
-            <MenuItem primaryText="Store" />
-            <MenuItem primaryText="Cart" />
-            <MenuItem primaryText="Contact" />
+            <MenuItem primaryText="Store" containerElement={<Link to="/store"/>} />
+            <MenuItem primaryText="Cart" containerElement={<Link to="/cart"/>} />
+            <MenuItem primaryText="Contact" containerElement={<Link to="/contact"/>} />
             
           </IconMenu>
         }

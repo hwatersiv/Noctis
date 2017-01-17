@@ -1,9 +1,7 @@
 import React from 'react';
-import {deepPurple100} from 'material-ui/styles/colors';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Store from './store.jsx';
 import Navbar from './navbar.jsx';
 
 const muiTheme = getMuiTheme(darkBaseTheme);
@@ -26,7 +24,6 @@ const styles = {
 class Noctis extends React.Component {
 
   render() {
-
     return (
       <div>
         <div style={styles.titleBackground}>Noctis</div>
@@ -34,8 +31,8 @@ class Noctis extends React.Component {
           <Navbar/>
         </MuiThemeProvider>
         <MuiThemeProvider muiTheme={muiTheme}>
-          <Store data={this.props.data}/>
-        </MuiThemeProvider>
+          {this.props.children}
+        </MuiThemeProvider>     
       </div>
     );
   }

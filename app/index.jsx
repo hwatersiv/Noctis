@@ -1,40 +1,24 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import './assets/css/base.css';
 import Noctis from './js/home.jsx';
+import Store from './js/store.jsx';
+import Contact from './js/contact.jsx';
 
-const ITEMS = [
-  {
-    name:'Beanie',
-    id: 1,
-    description: 'High Quality Wool. Handmade.',
-    subtitle: 'Warms even the coldest...head',
-    image: 'http://www.fillmurray.com/300/300',
-    price: '$40.00',
-  },
-  {
-    name:'Scarf',
-    id:2,
-    description: 'High Quality Wool. Handmade',
-    subtitle: 'Warms even the coldest...neck',
-    image: 'http://www.fillmurray.com/300/300',
-    price: '$30.00',
-  },
-  {
-    name:'Arm Warmers',
-    id:3,
-    description: 'High Quality Wool. Handmade',
-    subtitle: 'Warms even the coldest...arm',
-    image: 'http://www.fillmurray.com/300/300',
-    price: '$20.00',
-  },
-];
 //Needed for onTouchTap
 //Can go away when react 1.0 release
 //Check this repo:
 //https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-ReactDom.render(<Noctis data={ITEMS}/>, 
+ReactDom.render(
+  <Router history={hashHistory}>
+    <Route path="/" component={Noctis}>
+      <IndexRoute component={Store} />
+      <Route path="store" component={Store}/>
+      <Route path="contact" component={Contact}/> 
+    </Route>
+  </Router>, 
   document.getElementById('noctis'));
