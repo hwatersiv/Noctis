@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './item.jsx';
+import Cart from './cart.jsx';
 
 const ITEMS = [
   {
@@ -23,12 +24,28 @@ const ITEMS = [
     image: 'http://www.fillmurray.com/300/300',
     price: '$20.00',
   },
+  {
+    name:'Something Else Awesome',
+    id:4,
+    description: 'Lorem ipsum dolor sit amet, vulputate urna imperdiet, nascetur arcu pellentesque tincidunt vitae tortor nam, lectus ultrices, tellus id nascetur, sapien lacus ut volutpat in. Pretium dolor quis, augue eu eros magna pellentesque ut, non scelerisque rhoncus elit fermentum. Integer curabitur cursus diam nam vel dui, euismod diam tellus a placerat, ac vitae integer ac. Ante urna, est neque placerat mi vel. Mi donec, a etiam lorem dolor morbi pretium, id tincidunt eu, faucibus risus suspendisse nullam. Condimentum eu tempus hac a, hendrerit sed donec, blandit tristique erat vitae pellentesque sodales, pharetra semper risus, ac nullam.',
+    image: 'http://www.fillmurray.com/300/300',
+    price: '$20.00',
+  },
 ];
 
+const styles = {
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+  }
+}
+
 class Store extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   handleAddToCart (item) {
-    console.log(item);
   }
 
   render () {
@@ -42,7 +59,7 @@ class Store extends React.Component {
           subtitle={item.subtitle}
           image={item.image}
           price={item.price}
-          onClick={this.handleAddToCart.bind(null,item)} />
+          onClick={this.handleAddToCart.bind(null, item)} />
       )
     })
 
