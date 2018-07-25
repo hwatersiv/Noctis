@@ -69,7 +69,6 @@ class Noctis extends React.Component {
   render() {
     return (
       <div>
-        <div style={styles.warning}>Under Construction</div>
         <div style={styles.titleBackground}>Noctis</div>
         <MuiThemeProvider muiTheme={muiTheme}>
           <Navbar/>
