@@ -1,6 +1,8 @@
 import React from 'react';
-import Item from './item.jsx';
-import Cart from './cart.jsx';
+import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
+import Item from './item.js';
+import { withStyles } from '@material-ui/core/styles';
 
 const ITEMS = [
   {
@@ -33,40 +35,52 @@ const ITEMS = [
   },
 ];
 
-const styles = {
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-  }
-}
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    paddingLeft: '8px',
+    paddingRight: '8px'
+  },
+})
 
 class Store extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor(props, context) {
+    super(props, context)
   }
 
   handleAddToCart (item) {
   }
 
   render () {
-    const itemNodes =  ITEMS.map((item) => {
+    const { classes } = this.props
+    const itemNodes = ITEMS.map((item) => {
       return (
-        <Item 
-          className="item"
-          name={item.name}
-          key={item.id}
-          description={item.description}
-          subtitle={item.subtitle}
-          image={item.image}
-          price={item.price}
-          onClick={this.handleAddToCart.bind(null, item)} />
+        <Grid item xs={4}
+              key={item.id}>
+          <Item 
+            className="item"
+            name={item.name}
+            description={item.description}
+            image={item.image}
+            price={item.price}
+            onClick={this.handleAddToCart.bind(null, item)} />
+        </Grid>
       )
     })
 
     return (
-      <div>{itemNodes}</div>
+      <Grid container
+            className={classes.root}
+            spacing={8}
+            direction="row">
+        {itemNodes}
+      </Grid>
     )
   }
 }
 
-export default Store;
+Store.propTypes = {
+  classes: PropTypes.object.isRequired,
+}
+
+export default withStyles(styles, { withTheme: true })(Store);

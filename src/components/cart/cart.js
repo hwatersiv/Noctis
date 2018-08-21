@@ -1,7 +1,8 @@
 import React from 'react';
-import Store from './store.jsx';
-import RaisedButton from 'material-ui/RaisedButton';
-import Paper from 'material-ui/Paper';
+import Store from '../store/store.js';
+import Button from '@material-ui/core/Button';
+import { Divider } from '@material-ui/core';
+// import Paper from '@material-ui/core/Paper';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Cart extends React.Component {
 
   render() {
     return(
-      <RaisedButton label="functions test" onClick={this.getInitalCartState}/>
+      <div>The Cart goes here!</div>
     )
   }
 }
