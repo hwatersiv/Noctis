@@ -3,3 +3,9 @@
   src: local('Porcelain'),
        url('../assets/fonts/Porcelain.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'Tulpen-One';
+  src: local('TulpenOne-Regular')
+       url('../assets/fonts/TulpenOne-Regular.ttf') format('ttf');
+}

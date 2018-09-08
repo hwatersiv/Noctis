@@ -16,13 +16,19 @@ const styles = theme => ({
   titleBackground: {
     backgroundImage: 'url('+ headerImage +')',
     backgroundSize: 'cover',
-    height: 400,
+    height: 350,
     width: '100%',
     fontFamily: "'Porcelain', sans-serif",
-    fontSize: '22em',
+    fontSize: '20em',
     color: 'white',
-    textAlign: 'center',
-    lineHeight: '400px',
+    display: 'flex',
+    justifyContent:'center',
+    alignItems: 'center'
+  },
+  title: {
+    flexGrow: 0,
+    flexShrink: 1,
+    flexBasis: "auto"
   },
   warning: {
     color: 'red',
@@ -46,7 +52,9 @@ class Home extends React.Component {
       <Grid container
             className={classes.root}
             spacing={8}>
-        <div className={classes.titleBackground}>Noctis</div>
+        <Grid item className={classes.titleBackground} xs={12}>
+          <span className={classes.title}>Noctis</span>
+        </Grid>
         <Navbar/>
       </Grid>
     );

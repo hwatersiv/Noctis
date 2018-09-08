@@ -1,53 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import {Link} from 'react-router-dom';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
 
 
 const styles = theme => ({
-  cardActions:{
-    display: 'flex',
-    justifyContent: "space-between"
+  root:{
+    marginBottom: 8
+  },
+  icon: {
+    color: 'grey',
+    marginRight: 5
   }
 });
 
-class Item extends React.Component {
-  constructor (props, context) {
-    super(props, context)
-  }
+const Item = props => {
+  const {classes} = props
+  const {item} = props
 
-  render () {
-    const {classes} = this.props
-
+  const ItemLink = props => {
     return (
-      <Card style={styles.container}>
-        <CardMedia component='img'
-                   image={this.props.image}
-                   title={this.props.name}>
-        </CardMedia>
-        <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            {this.props.name}
-          </Typography>
-          <Typography component="p">
-            {this.props.description}
-          </Typography>
-        </CardContent>
-        <CardActions className={classes.cardActions}>
-          <div>
-            <Button size="small" color="primary">Add to Cart</Button>
-            <Button size="small" color="primary">More Info</Button>
-          </div>
-          <Typography component="span">{this.props.price}</Typography>
-        </CardActions>
-      </Card>
+      <Link to={"/store/" + item.id}>
+        <InfoIcon className={classes.icon}/>
+      </Link>
     )
   }
+
+  return (
+    <GridListTile className={classes.root} key={item.id} cols={1}>
+      <img src={item.image} alt={item.name} />
+      <GridListTileBar
+        title={item.name}
+        subtitle={<span>Price: {item.price}</span>}
+        actionIcon={
+          <IconButton className={classes.icon}
+                      component={ItemLink}>
+          </IconButton>
+        }
+      />
+    </GridListTile>
+  )
 };
 
 Item.propTypes = {

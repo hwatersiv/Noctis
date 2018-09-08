@@ -2,11 +2,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import {
-  Router,
+  BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory'
+
+// import createBrowserHistory from 'history/createBrowserHistory';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -15,9 +16,8 @@ import Home from './components/home/home';
 import Store from './components/store/store';
 import Cart from './components/cart/cart';
 import Contact from './components/contact/contact';
+import ItemDetail from './components/store/itemDetail';
 
-
-const browserHistory = createBrowserHistory();
 
 const theme = createMuiTheme({
   palette: {
@@ -36,19 +36,21 @@ const theme = createMuiTheme({
   }
 })
 
+// const history = createBrowserHistory()
+
 render(
   <MuiThemeProvider theme={theme}>
-    <Router history={browserHistory}>
+    <Router>
       <div> 
         <Home />
         <Switch>
-          <Route exact path="/" component={Store}/>
-          <Route path="/store" component={Store}/>
+          <Route exact path="/store" component={Store}/>
+          <Route exact path="/store/:id" component={ItemDetail}/>
           <Route path="/cart" component={Cart}/>
           <Route path="/contact" component={Contact}/>
         </Switch>
       </div>    
-      </Router>
+    </Router>
   </MuiThemeProvider>,
   document.getElementById('noctis')
 );

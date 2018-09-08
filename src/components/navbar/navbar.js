@@ -4,24 +4,27 @@ import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import Typography from '@material-ui/core/Typography';
+import ListItem from '@material-ui/core/ListItem';
+import List from '@material-ui/core/List';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginLeft: -18,
-    marginRight: 10,
+  toolBar: {
+    display: 'flex',
+    justifyContent: 'center'
   },
+  list: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    padding: 0
+  },
+  menuItem: {
+    fontFamily: "'TulpenOne-Regular', sans-serif",
+    fontSize: '1.25em'
+  }
 })
 
 class Navbar extends React.Component {
@@ -33,67 +36,30 @@ class Navbar extends React.Component {
     }
   }
 
-  handleOpenMenu = () => {
-    console.log("Im here", this.state)
-    this.setState(state => ({menuIsOpen: !state.menuIsOpen}));
-  };
-
-  handleMenuClose = event => {
-    if(this.anchorEl.contains(event.target)) {
-      return;
-    }
-
-    this.setState({ menuIsOpen: false });
-  }
-
   render() {
     const {classes} = this.props
-    const {menuIsOpen} = this.state;
-
 
     return(
       <div className={classes.root}>
         <AppBar position="static">
-          <Toolbar variant="dense">
-            <IconButton className={classes.menuButton}
-                        color="inherit"
-                        aria-label="Menu"
-                        aria-owns={menuIsOpen ? 'menu-list-grow': null}
-                        aria-haspopup="true"
-                        buttonRef={node => {
-                          this.anchorEl = node;
-                        }}
-                        onClick={this.handleOpenMenu}>
-              <MenuIcon />
-            </IconButton>
-            <Popper open={menuIsOpen} anchorEl={this.anchorEl} transition disablePortal>
-              {({ TransitionProps, placement }) => (
-                <Grow
-                  {...TransitionProps}
-                  id="menu-list-grow"
-                  style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                >
-                  <Paper>
-                    <ClickAwayListener onClickAway={this.handleMenuClose}>
-                      <MenuList>
-                        <MenuItem onClick={this.handleMenuClose}
-                                  component={Link} to="/store">
-                          Store
-                        </MenuItem>
-                        <MenuItem onClick={this.handleMenuClose}
-                                  component={Link} to="/cart">
-                          Cart
-                        </MenuItem>
-                        <MenuItem onClick={this.handleMenuClose}
-                                  component={Link} to="/contact">
-                          Contact
-                        </MenuItem>
-                      </MenuList>
-                    </ClickAwayListener>
-                  </Paper>
-                </Grow>
-              )}
-            </Popper>
+          <Toolbar variant="dense" className={classes.toolBar}>
+            <List component="nav" className={classes.list}>
+              <ListItem button component={Link} to="/store">
+                <Typography className={classes.menuItem} color="secondary">
+                  Store
+                </Typography>
+              </ListItem>
+              <ListItem button component={Link} to="/cart">
+                <Typography className={classes.menuItem} color="secondary">
+                  Cart
+                </Typography>
+              </ListItem>
+              <ListItem button component={Link} to="/contact">
+                <Typography className={classes.menuItem} color="secondary">
+                  Contact
+                </Typography>
+              </ListItem>
+            </List>
           </Toolbar>
         </AppBar>
       </div>

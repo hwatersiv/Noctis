@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 
 export default {
+  mode: 'development',
   entry: './src/index.js',
   module: {
     rules: [
@@ -50,7 +51,7 @@ export default {
     ]
   },
   output: {
-    path: path.resolve(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
